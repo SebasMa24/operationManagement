@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class OperationManagementApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(OperationManagementApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(OperationManagementApplication.class, args);
+    }
 }
