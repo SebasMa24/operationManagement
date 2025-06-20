@@ -1,4 +1,4 @@
-package com.quantumdev.integraservicios.operationManagement.config;
+package com.quantumdev.integraservicios.operationManagement.Config;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Configuration;

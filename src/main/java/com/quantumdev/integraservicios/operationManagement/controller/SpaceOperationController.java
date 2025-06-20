@@ -32,16 +32,16 @@ public class SpaceOperationController {
         }
     }
     
-    @GetMapping("/user/{userId}")
+    @GetMapping("/user/{userEmail}")
     public ResponseEntity<?> getUserReservations(
-            @PathVariable String userId,
+            @PathVariable String userEmail,
             @RequestParam(required = false) String filter) {
         try {
-            if (userId == null || userId.trim().isEmpty()) {
-                return ResponseEntity.badRequest().body("El ID de usuario es requerido");
+            if (userEmail == null || userEmail.trim().isEmpty()) {
+                return ResponseEntity.badRequest().body("El Email de usuario es requerido");
             }
             
-            List<ReservationResponseDto> reservations = spaceOperationService.getUserReservations(userId, filter);
+            List<ReservationResponseDto> reservations = spaceOperationService.getUserReservations(userEmail, filter);
             return ResponseEntity.ok(reservations);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -131,7 +131,7 @@ public class SpaceOperationController {
                 return ResponseEntity.ok(response);
             } else {
                 Map<String, String> response = new HashMap<>();
-                response.put("message", "No se encontró la reservación de espacio para cancelar");
+                response.put("message", "No se puede cancelar la reservación, ya que ha sido entregada o no existe");
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
         } catch (Exception e) {

@@ -13,6 +13,6 @@ import java.util.List;
 public interface SpaceRepository extends JpaRepository<Space, Space.SpaceId> {
     
     // Buscar espacios disponibles (not currently reserved)
-    @Query("SELECT s FROM Space s WHERE s.stateSpace = 'Disponible'")
+    @Query("SELECT s FROM Space s WHERE s.stateSpace = 'DISPONIBLE'")
     List<Space> findAvailableSpaces();
 }
